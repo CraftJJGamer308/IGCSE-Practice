@@ -5,6 +5,7 @@ class Product:
         self.description = description
         self.price = price
 
+
 cart = []
 
 productList = [
@@ -36,16 +37,24 @@ while True:
     for i in range(0, len(productList)):
         if productList[i].category == 'Phone' or productList[i].category == 'Tablet':
             print(str(i + 1) + '. (' + productList[i].itemCode+') ' +
-                productList[i].description + ' : $' + str(productList[i].price))
+                  productList[i].description + ' : $' + str(productList[i].price))
 
-    choice = input('Enter the item code(s) that you want to buy. Enter 0 to finish: ')
-    
+    choice = input(
+        'Enter the item code that you want to buy: ')
+
+    found = False
     for i in range(0, len(productList)):
         if choice == productList[i].itemCode:
             cart.append(productList[i])
+            found = True
             break
-    
+
+    if not found:
+        print('Unknown product. Finishing... ')
+        break
+
     deviceCount += 1
+
     SIM = input('SIM Free(1) or Pay as you go(2)?: ')
     if SIM == '1':
         cart.append(productList[10])
@@ -63,7 +72,10 @@ while True:
         break
 
 sum = 0
-for i in range(0,len(cart)):
+for i in range(0, len(cart)):
     sum += cart[i].price
-    
-print(sum)
+
+print('Total original price: $' + str(sum))
+discountPrice = round((sum * (0.9 ** (deviceCount - 1)))*100)/100
+print('Discounted: $' + str(sum - discountPrice))
+print('Your total: $' + str(discountPrice))
