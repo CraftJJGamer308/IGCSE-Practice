@@ -48,8 +48,8 @@ def getVtrNo(): #function for getting votes while checking voter number
     return
 
 
-# while not(28<=getTGstdNum()<=35): 
-while not(getTGstdNum()<=35): #for now      
+while not(28<=getTGstdNum()<=35): 
+#while not(getTGstdNum()<=35): #for now      
     #checks if amount of students is between 28 and 35
     print('Please try again')
 
