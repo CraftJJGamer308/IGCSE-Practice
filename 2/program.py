@@ -1,6 +1,13 @@
 TGname = input('enter the name of the tutor group: ')
 TGstdNum = int(input('enter the number of students in the tutor group:'))
-TGcddNum = int(input('enter the number of candidates (max 4):'))
+TGcddNum=0
+def getTGcddNum():
+    global TGcddNum
+    TGcddNum = int(input('enter the number of candidates (max 4):'))
+    return TGcddNum
+while getTGcddNum()>4:
+    print('please try again')
+print(TGcddNum)
 TGcdd = []
 TGvotes = [0, 0, 0, 0]
 
