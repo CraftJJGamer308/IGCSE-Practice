@@ -1,10 +1,11 @@
 TGname = input('enter the name of the tutor group: ')
 TGstdNum = 0
-def getTGsttNum():
+def getTGstdNum():
     global TGstdNum
     TGstdNum =int(input('enter the number of students in the tutor group:'))
     return TGstdNum
-while not(28<=TGstdNum<=35): 
+
+while not(28<=getTGstdNum()<=35): 
     print('Please try again')
 
 TGcddNum=0
@@ -12,7 +13,7 @@ def getTGcddNum():
     global TGcddNum
     TGcddNum = int(input('enter the number of candidates (max 4):'))
     return TGcddNum
-while getTGcddNum()>4:
+while not(1<=getTGcddNum()<=4):
     print('please try again')
 print(TGcddNum)
 TGcdd = []
