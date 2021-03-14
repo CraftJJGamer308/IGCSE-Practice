@@ -22,18 +22,26 @@ TGvotes = [0, 0, 0, 0]
 for i in range(0, TGcddNum):
     TGcdd.append(input('enter the name of candidate '+str(i+1)+': '))
 
+abstained=0
 for i in range(0, TGstdNum):
+    print('0. obstain')
     for j in range(0, TGcddNum):
         print(str(j+1)+'. '+str(TGcdd[j]))
-    TGvotes[int(input('enter your choice: '))-1] += 1
+    vote = int(input('enter your choice: '))
+    if vote ==0:
+        abstained+=1
+        continue
+    TGvotes[vote-1] += 1
 
 print('\n\nThe Voting Results for '+TGname)
 for i in range(0, TGcddNum):
-    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+'votes')
+    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes')
 
 mx = max(TGvotes)
 winners = []
 for i in range(0, TGcddNum):
     if TGvotes[i] == mx:
         winners.append(TGcdd[i])
-print('\nThe winner(s) is/are '+str(', '.join(winners)))
+
+print('\nabstained votes: '+str(abstained))
+print('The winner(s) is/are '+str(', '.join(winners)))
