@@ -48,14 +48,10 @@ def getVtrNo(): #function for getting votes while checking voter number
     vtrNo.append(response) #adds voter number to the array of voter numbers
     voting() 
     return
-
-def percentage():
-    for i in range(0,TGcddNum)
-        print(
     
 
-while not(28<=getTGstdNum()<=35): 
-#while not(getTGstdNum()<=35): #for now      
+# while not(28<=getTGstdNum()<=35): 
+while not(getTGstdNum()<=35): #for now      
     #checks if amount of students is between 28 and 35
     print('Please try again')
 
@@ -72,14 +68,17 @@ for i in range(0,TGstdNum):
     getVtrNo()
 
 print('\n\nThe Voting Results for '+TGname) #Results for that tutor group
+print('Number of votes cast: ',voteNo)
+print('\nabstained votes: '+str(abstained)) #print amount of students abstained
 
 for i in range(0, TGcddNum): #show results for each candidate from the amount of candidates
-    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes ', str(TGvotes[i]/voteNo * 100) + '% of votes casted') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
+    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes ', str(round((TGvotes[i]/voteNo * 100)*100)/100) + '% of votes casted') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
 
 mx = max(TGvotes) #searches for winner by the maximum value in the votes
 
 for i in range(0, TGcddNum): #getting index of the winners
     if TGvotes[i] == mx: #if candidate belongs to the winners, add it 
         winners.append(TGcdd[i])
-print('\nabstained votes: '+str(abstained)) #print amount of students abstained
+
+
 print('The winner(s) is/are '+str(', '.join(winners))) #print winners
