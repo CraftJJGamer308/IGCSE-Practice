@@ -18,6 +18,7 @@ def getTGcddNum():
     global TGcddNum
     TGcddNum = int(input('enter the number of candidates (max 4):'))
     return TGcddNum
+
 def voting(): 
     #getting input of votes per voter number
     global abstained
@@ -70,12 +71,12 @@ for i in range(0,TGstdNum):
 
 def printResults():
     global winners
-    print('\n\nThe Voting Results for '+TGname) #Results for that tutor group
-    print('Number of votes cast: ',voteNo)
-    print('\nabstained votes: '+str(abstained)) #print amount of students abstained
+    print('\n\n-----------The Voting Results for '+TGname+'-----------') #Results for that tutor group
+    print('\nNumber of votes cast: ',voteNo)
+    print('abstained votes: '+str(abstained)+'\n\n\n') #print amount of students abstained
 
     for i in range(0, TGcddNum): #show results for each candidate from the amount of candidates
-        print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes ', str(round((TGvotes[i]/voteNo * 100)*100)/100) + '% of votes casted') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
+        print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes, ', str(round((TGvotes[i]/voteNo * 100)*100)/100) + '% of votes casted.\n') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
 
     mx = max(TGvotes) #searches for winner by the maximum value in the votes
 
@@ -85,15 +86,20 @@ def printResults():
 
 
     print('The winner(s) is/are '+str(', '.join(winners))) #print winners
-    printResults()
+printResults()
 
 while len(winners)>1:
-	TgcddNum = len(winners)
-	TGcdd = winners
-	vtrNo = []
-  for i in range(0,TGstdNum):
-    #get votes while checking voter number
-    getVtrNo()
-  printResults()
+    TGcddNum = int(len(winners))
+    TGcdd = winners
+    vtrNo = []
+    TGvotes = [0, 0, 0, 0]
+    abstained = 0 
+    voteNo = 0
+    winners = []
+    print('\nThere is a tie, casting another vote...\n')
+    for i in range(0,TGstdNum):
+        #get votes while checking voter number
+        getVtrNo()
+    printResults()
 
   
