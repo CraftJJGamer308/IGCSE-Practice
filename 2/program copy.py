@@ -38,6 +38,26 @@ def voting():
         TGvotes[vote-1] += 1 #inputs the vote into the vote array
         voteNo += 1
 
+def voting2(): 
+    #getting input of votes per voter number
+    global abstained
+    global TGstdNum
+    global TGcddNum
+    global TGcdd
+    global voteNo
+    
+    print('0. abstain') #prints 0. abstain
+    for j in range(0, len(winners)): #index starts at 0
+        print(str(j+1)+'. '+str(winners[j])) #index + 1, candidate name presented looks like 1. asdfjaslf
+    vote = int(input('enter your choice: '))
+    
+    if vote ==0: 
+        #checks for abstained votes
+        abstained+=1
+    else:
+        TGvotes2[vote-1] += 1 #inputs the vote into the vote array
+        voteNo2 += 1
+
 
 def getVtrNo(): #function for getting votes while checking voter number
     global vtrNo
