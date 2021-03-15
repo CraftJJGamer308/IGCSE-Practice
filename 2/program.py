@@ -6,6 +6,7 @@ TGvotes = [0, 0, 0, 0] #counts of vote per candidate
 vtrNo = []  #voter Number (like student number)
 abstained = 0 
 winners = [] #array for the winners
+voteNo = 0
 
 def getTGstdNum(): 
     #function for amount of students
@@ -23,7 +24,7 @@ def voting():
     global TGstdNum
     global TGcddNum
     global TGcdd
-    
+    global voteNo
     
     print('0. abstain') #prints 0. abstain
     for j in range(0, TGcddNum): #index starts at 0
@@ -35,6 +36,7 @@ def voting():
         abstained+=1
     else:
         TGvotes[vote-1] += 1 #inputs the vote into the vote array
+        voteNo += 1
 
 def getVtrNo(): #function for getting votes while checking voter number
     global vtrNo
@@ -47,6 +49,10 @@ def getVtrNo(): #function for getting votes while checking voter number
     voting() 
     return
 
+def percentage():
+    for i in range(0,TGcddNum)
+        print(
+    
 
 while not(28<=getTGstdNum()<=35): 
 #while not(getTGstdNum()<=35): #for now      
@@ -68,7 +74,7 @@ for i in range(0,TGstdNum):
 print('\n\nThe Voting Results for '+TGname) #Results for that tutor group
 
 for i in range(0, TGcddNum): #show results for each candidate from the amount of candidates
-    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
+    print(str(i+1)+'. '+str(TGcdd[i])+': '+str(TGvotes[i])+' votes ', str(TGvotes[i]/voteNo * 100) + '% of votes casted') #index at 0, voter was given at 1 ad onwards; gets candidate name; gets candidate votes
 
 mx = max(TGvotes) #searches for winner by the maximum value in the votes
 
