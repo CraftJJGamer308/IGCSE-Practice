@@ -55,7 +55,9 @@ def doVote(cdd):
 
     def getVtrNo(): #function for getting votes while checking voter number
         global vtrNo
-        response = int(input('enter your voter number: ')) #checks vtrNO
+        response = (input('enter your voter number: ')) #checks vtrNO
+        while type(response) is not int:
+            response = (input('your voter number should be an integer. \nenter your voter number: ')) #checks vtrNO
         while (response in vtrNo):
             #if vtrNo is already given once, it won't accept
             print('you have already voted')
@@ -97,6 +99,5 @@ def doVote(cdd):
     printResults()
 
 doVote(TGcdd)
-while (len(winners)>1){
+while (len(winners)>1):
     doVote(winners)
-}
